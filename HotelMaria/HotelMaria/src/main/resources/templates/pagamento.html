@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doação - Hotel da Maria</title>
+    <link rel="stylesheet" th:href="@{../static/css/pagamento.css}">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="doar.html" class="back">&larr;</a>
+            <h1>Doação</h1>
+        </div>
+    </header>
+    <div class="doacao-container">
+        <form>
+            <div class="form-group input-icon">
+                <label>Valor da contribuição:</label>
+                <input type="text" value="R$ 10,00">
+            </div>
+
+            <div class="form-group">
+                <label>Forma de pagamento:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="pagamento" value="debito" checked> Débito</label>
+                    <label><input type="radio" name="pagamento" value="credito"> Crédito</label>
+                    <label><input type="radio" name="pagamento" value="pix"> PIX</label>
+                    <label><input type="radio" name="pagamento" value="boleto"> Boleto</label>
+                </div>
+            </div>
+
+            <div class="form-group input-icon">
+                <label>Número do cartão:</label>
+                <input type="text" value="1111 2222 3333 4444">
+            </div>
+
+            <div class="form-group input-icon">
+                <label>Nome do titular:</label>
+                <input type="text" value="Ana Paula dos Santos">
+            </div>
+
+            <div class="form-group input-icon">
+                <label>CPF do titular:</label>
+                <input type="text" value="111.222.333-44">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group input-icon">
+                    <label>Vencimento:</label>
+                    <input type="text" value="09/30">
+                </div>
+                <div class="form-group input-icon">
+                    <label>CVV:</label>
+                    <input type="text" value="123">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-doar">Doar</button>
+        </form>
+    </div>
+    <script src="../../static/js/pagamento.js"></script>
+</body>
+
+</html>

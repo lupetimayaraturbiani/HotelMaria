@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Hotel da Maria</title>
+  <link rel="stylesheet" th:href="@{../static/css/login.css}">
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <img src="../static/img/logo.png" alt="Logo Hotel da Maria" class="logo">
+      <h1>Hotel da Maria</h1>
+    </div>
+    <div class="header-curve">
+      <h2>Bom te ver aqui!</h2>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="form-box">
+      <form th:action="@{/login}" method="post" id="loginForm">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="seunome@gmail.com" required>
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="suasenha123" required>
+
+        <a href="#" class="forgot">Esqueci minha senha</a>
+
+        <button type="submit" class="btn-primary">Acessar conta</button>
+
+        <p class="signup-text">Ainda não possui uma conta?</p>
+        <button type="button" onclick="window.location.href='cadastro.html'" class="btn-secondary">Fazer cadastro</button>
+      </form>
+    </div>
+  </main>
+  <script src="../../static/js/login.js"></script>
+</body>
+</html>

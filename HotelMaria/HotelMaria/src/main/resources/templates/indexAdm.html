@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel da Maria - Admin</title>
+  <link rel="stylesheet" th:href="@{../static/css/indexAdm.css}">
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="../static/img/logo-dark.png" alt="Logo Hotel da Maria">
+      <h1>Hotel da Maria</h1>
+    </div>
+  </header>
+  <main class="container">
+    <section class="perfil">
+      <div class="perfil-info">
+        <img src="../static/img/perfil-adm.png" alt="Foto de perfil" class="perfil-foto">
+        <p class="perfil-nome">Olá, Administrador</p>
+      </div>
+
+      <div class="perfil-opcoes">
+        <button onclick="window.location.href = 'gerenciar-adocao.html'">Gerenciar adoções</button>
+        <button onclick="window.location.href = 'gerenciar-tutores.html'"  >Gerenciar tutores</button>
+        <button>Gerenciar doações</button>
+        <button onclick="window.location.href = 'cadastro-pets.html'" >Cadastrar hóspede</button>
+      </div>
+
+      <div class="acoes">
+        <button onclick="logout()" class="sair">Sair</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h2>Excluir cadastro</h2>
+      <p>Tem certeza que deseja excluir sua conta? Todos os seus dados serão perdidos.</p>
+      <div class="modal-buttons">
+        <button id="cancelar">Cancelar</button>
+        <button id="confirmar" class="confirmar">Excluir</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function logout() {
+      alert("Você saiu do sistema!");
+      window.location.href = "../usuario/login.html";
+    }
+  </script>
+
+</body>
+
+</html>

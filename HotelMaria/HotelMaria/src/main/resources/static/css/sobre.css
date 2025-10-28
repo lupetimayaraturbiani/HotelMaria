@@ -1,0 +1,142 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8fafa;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+.topo {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #ffffff;
+    border-bottom: 1px solid #dcdcdc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    width: 34.5px;
+    height: 46px;
+    margin-right: 12px;
+}
+
+.topo h1 {
+    font-size: 1.5rem;
+    color: #114B5F;
+}
+
+/* Conteúdo principal */
+.conteudo {
+    flex: 1;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Seção história */
+.historia {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.imagem-historia {
+    width: 40%;
+    max-width: 450px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.texto-historia {
+    flex: 1;
+}
+
+.texto-historia h2 {
+    color: #074d59;
+    margin-bottom: 10px;
+}
+
+/* FAQ */
+.faq h2 {
+    color: #074d59;
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.faq-pergunta {
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    font-size: 1rem;
+    background: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-resposta {
+    display: none;
+    padding: 30px;
+    background: #f1f8f8;
+    font-size: 0.95rem;
+}
+
+.faq-item.active .faq-resposta {
+    display: block;
+}
+
+/* Rodapé */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    padding: 0.8rem;
+    background: #ffffff;
+    border-top: 1px solid #dcdcdc;
+}
+
+.footer img {
+    width: 30px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.footer img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .historia {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .imagem-historia {
+        width: 100%;
+    }
+}

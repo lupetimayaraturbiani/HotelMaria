@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f8fa;
+    color: #1b2b34;
+}
+
+header.header {
+    display: flex;
+    align-items: center;
+    padding: 10px 32px;
+    background-color: #fff;
+    color: #114B5F;
+    border-bottom: 1px solid #dcdcdc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+header .logo {
+    width: 34.5px;
+    height: 46px;
+    margin-right: 12px;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+.container {
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.banner {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.banner img {
+    width: 100%;
+    display: block;
+}
+
+.banner-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, #114B5F 80%, transparent);
+    color: white;
+    padding: 1rem;
+}
+
+.doacoes h3 {
+    margin-top: 1.5rem;
+    padding: 1em;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem 2rem
+}
+
+.card {
+    background: #f9fdf9;
+    border: 1px solid #cdecdc;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.card-button{
+    text-decoration: none;
+    color: #fff;
+}
+
+.card button {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #3dc47d;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background: #34a86a;
+}
+
+/* Formulário pagamento */
+.pagamento h3 {
+    margin-bottom: 1rem;
+}
+
+.pagamento form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.row {
+    display: flex;
+    gap: 1rem;
+}
+
+.row div {
+    flex: 1;
+}
+
+.btn-doar {
+    padding: 0.8rem;
+    background: #0a4958;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-doar:hover {
+    background: #083b47;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    padding: 0.8rem;
+    background: #ffffff;
+    border-top: 1px solid #dcdcdc;
+}
+
+.footer img {
+    width: 30px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.footer img:hover {
+    transform: scale(1.1);
+}

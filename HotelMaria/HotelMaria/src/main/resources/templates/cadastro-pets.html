@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pets</title>
+    <link rel="stylesheet" th:href="@{../static/css/cadastro-pets.css}">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+          <a href="indexAdm.html" class="back">&larr;</a>
+          <h1>Cadastre de Pets</h1>
+        </div>
+    </header>
+    <div class="container">
+        <main class="form-card">
+            <form>
+                <p class="required">*Campos obrigatórios</p>
+
+                <label>Nome do pet*</label>
+                <input type="text" placeholder="Insira o nome do animal">
+
+                <label>Idade*</label>
+                <input type="number" placeholder="Insira a idade do animal">
+
+                <label>Raça*</label>
+                <input type="text" placeholder="Insira a raça do animal">
+
+                <label>Gênero*</label>
+                <select>
+                    <option value="">Selecione o gênero</option>
+                    <option>Macho</option>
+                    <option>Fêmea</option>
+                </select>
+
+                <label>Vacinação completa?*</label>
+                <select>
+                    <option value="">Selecione a opção</option>
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select>
+
+                <label>Características principais</label>
+                <div class="tags">
+                    <span class="tag">Dormihoquinho ✖</span>
+                </div>
+
+                <label>Castrado?*</label>
+                <select>
+                    <option value="">Selecione a opção</option>
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select>
+
+                <label>Conte a história do animal*</label>
+                <textarea placeholder="Digite aqui..."></textarea>
+
+                <button type="submit" class="submit">Finalizar cadastro</button>
+            </form>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

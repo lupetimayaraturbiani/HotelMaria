@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil - Hotel da Maria</title>
+  <link rel="stylesheet" th:href="@{../static/css/perfil.css}">
+</head>
+
+<body>
+  <header class="header">
+    <img src="../static/img/logo-dark.png" alt="Logo Hotel da Maria" class="logo">
+    <h1>Hotel da Maria</h1>
+  </header>
+
+  <main class="container">
+    <section class="perfil">
+      <div class="perfil-info">
+        <img src="../static/img/foto.png" alt="Foto de perfil" class="perfil-foto">
+        <p class="perfil-nome">Olá, Ana</p>
+      </div>
+
+      <div class="perfil-opcoes">
+        <button>Dados de cadastro</button>
+        <button>Minhas doações</button>
+        <button>Hóspedes favoritos</button>
+        <button>Documentos</button>
+        <button>Encontrei um hóspede</button>
+      </div>
+
+      <div class="acoes">
+        <button id="btnExcluir" class="excluir">Excluir cadastro</button>
+        <button onclick="logout()" class="sair">Sair</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="index.html">
+      <img src="../static/img/home.png" alt="Início">
+    </a>
+    <a href="doar.html">
+      <img src="../static/img/doar.png" alt="Doações">
+    </a>
+    <a href="sobre.html">
+      <img src="../static/img/sobre-nos.png" alt="Hóspedes">
+    </a>
+    <a href="../usuario/perfil.html">
+      <img src="../static/img/perfil-dark.png" alt="Perfil">
+    </a>
+  </footer>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h2>Excluir cadastro</h2>
+      <p>Tem certeza que deseja excluir sua conta? Todos os seus dados serão perdidos.</p>
+      <div class="modal-buttons">
+        <button id="cancelar">Cancelar</button>
+        <button id="confirmar" class="confirmar">Excluir</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function logout() {
+      alert("Você saiu do sistema!");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+
+</html>

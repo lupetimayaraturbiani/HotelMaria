@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Hotel da Maria</title>
+  <link rel="stylesheet" th:href="@{../static/css/cadastro.css}">
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <a th:href="@{/login.html}" class="back">&larr;</a>
+      <h1>Cadastre-se</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Preencha suas informações de cadastro</h2>
+    <p class="info"><span>*</span>Campos obrigatórios</p>
+
+    <form th:action="@{/cadastro}" method="post" th:object="${usuario}">
+      <label for="nome">Nome completo*</label>
+      <input id="nome" placeholder="insira seu nome completo" th:field="*{nome}" type="text">
+
+      <label for="email">E-mail*</label>
+      <input type="email" id="email" th:field="*{email}" placeholder="insira seu endereço de e-mail">
+
+      <label for="telefone">Telefone</label>
+      <input type="tel" id="telefone" th:field="*{telefone}" placeholder="insira seu número de telefone com DDD">
+
+      <label for="senha">Senha*</label>
+      <input type="password" id="senha" th:field="*{senha}" placeholder="insira uma senha de acesso">
+
+      <label for="confirmar">Confirme a senha*</label>
+      <input type="password" id="confirmar" th:field="*{senha}" placeholder="repita sua senha de acesso">
+
+      <button type="submit" class="btn-primary">Finalizar cadastro</button>
+    </form>
+  </main>
+</body>
+</html>

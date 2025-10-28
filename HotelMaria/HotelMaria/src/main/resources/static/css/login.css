@@ -1,0 +1,154 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+    background-color: #114B5F;
+    color: white;
+    height: 35vh;
+    /* cobre metade da tela */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.logo {
+    width: 60px;
+    margin-bottom: 10px;
+    margin-right: 50px;
+}
+
+/* CURVA */
+.header-curve {
+    background: #f8f8f8;
+    width: 100%;
+    height: 120px;
+    border-top-left-radius: 100% 2000px;
+    border-top-right-radius: 100% 2000px;
+    margin-top: auto;
+    /* joga para o fim do header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-curve h2 {
+    color: #114B5F;
+    font-size: 25px;
+}
+
+/* CONTAINER DO FORM */
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.form-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Inputs */
+form label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    color: #333;
+    font-size: 14px;
+}
+
+form input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.forgot {
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #114B5F;
+    text-decoration: none;
+}
+
+.forgot:hover {}
+
+/* Botões */
+.btn-primary {
+    width: 100%;
+    padding: 15px;
+    background-color: #114B5F;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.btn-primary:hover {}
+
+.signup-text {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.btn-secondary {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: 2px solid #114B5F;
+    color: #114B5F;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: #114B5F;
+    color: white;
+}
+
+/* Responsividade */
+@media (max-width: 500px) {
+    .form-box {
+        margin: 0 15px;
+    }
+
+    .logo {
+        width: 50px;
+    }
+}
