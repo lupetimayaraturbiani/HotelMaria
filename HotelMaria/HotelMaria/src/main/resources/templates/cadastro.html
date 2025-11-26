@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro - Hotel da Maria</title>
-  <link rel="stylesheet" th:href="@{../static/css/cadastro.css}">
+  <link rel="stylesheet" th:href="@{/css/cadastro.css}">
 </head>
 <body>
   <header class="header">
     <div class="header-content">
-      <a th:href="@{/login.html}" class="back">&larr;</a>
+      <a th:href="@{/login}" class="back">&larr;</a>
       <h1>Cadastre-se</h1>
     </div>
   </header>
@@ -32,7 +32,7 @@
       <input type="password" id="senha" th:field="*{senha}" placeholder="insira uma senha de acesso">
 
       <label for="confirmar">Confirme a senha*</label>
-      <input type="password" id="confirmar" th:field="*{senha}" placeholder="repita sua senha de acesso">
+      <input type="password" id="confirmar" name="confirmarSenha" placeholder="repita sua senha de acesso">
 
       <button type="submit" class="btn-primary">Finalizar cadastro</button>
     </form>

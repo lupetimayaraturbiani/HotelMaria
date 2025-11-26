@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Pet - Hotel da Maria</title>
-    <link rel="stylesheet" th:href="@{../static/css/perfil-pet.css}">
+    <link rel="stylesheet" th:href="@{/css/perfil-pet.css}">
 </head>
 
 <body>
@@ -19,36 +19,34 @@
     <main class="container">
         <section class="pet-card">
             <div class="pet-image">
-                <img src="../static/img/joca.png" alt="Foto do cachorro Joca">
-                <div class="pet-name">Joca</div>
-                <button class="favorite">♡</button>
+              <img th:src="@{${pet.fotoUrl}}" th:alt="${'Foto do ' + pet.nome}">
+              <div class="pet-name" th:text="${pet.nome}">Joca</div>
+              <button class="favorite">♡</button>
             </div>
 
             <div class="pet-info">
-                <h2>Minha ficha</h2>
-                <div class="tags">
-                    <span class="tag green">Idade: 13 anos</span>
-                    <span class="tag green">Gênero: macho ♂</span>
-                    <span class="tag green">Castrado</span>
-                    <span class="tag green">Raça: SRD</span>
-                    <span class="tag green">Vacinas em dia</span>
-                </div>
+              <h2>Minha ficha</h2>
+              <div class="tags">
+                <span class="tag green" th:text="${'Idade: ' + (pet.idade != null ? pet.idade : 'N/A') + ' anos'}">Idade: 13 anos</span>
+                <span class="tag green" th:text="${'Gênero: ' + (pet.genero != null ? pet.genero : 'N/A')}">Gênero: macho ♂</span>
+                <span class="tag green" th:if="${pet.adotado}" th:text="'Adotado'">Adotado</span>
+                <span class="tag green" th:if="${!pet.adotado}" th:text="'Disponível'">Disponível</span>
+                <span class="tag green" th:text="${'Raça: ' + (pet.raca != null ? pet.raca : 'N/D')}">Raça: SRD</span>
+              </div>
 
-                <h2>Meu perfil</h2>
-                <div class="tags">
-                    <span class="tag gray">Adora crianças</span>
-                    <span class="tag gray">Tranquilo</span>
-                    <span class="tag gray">Dorminhoco</span>
-                    <span class="tag gray">Amigável com outros animais</span>
-                </div>
+              <h2>Meu perfil</h2>
+              <div class="tags">
+                <!-- Tags genéricas; se quiser salvar tags no modelo, adapte aqui -->
+                <span class="tag gray">Adora crianças</span>
+                <span class="tag gray">Tranquilo</span>
+                <span class="tag gray">Dorminhoco</span>
+                <span class="tag gray">Amigável com outros animais</span>
+              </div>
 
-                <h2>Sobre mim</h2>
-                <p>
-                    Sou um senhorzinho muito simpático e calmo. Gosto de tomar sol, tirar sonequinhas durante a tarde e
-                    às vezes ainda tenho pique para brincar de bolinha!
-                </p>
+              <h2>Sobre mim</h2>
+              <p th:text="${pet.historia}">Sou um senhorzinho muito simpático e calmo...</p>
 
-                <button class="btn-adotar">Adotar</button>
+              <button class="btn-adotar">Adotar</button>
             </div>
         </section>
     </main>

@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hotel da Maria</title>
-  <link rel="stylesheet" th:href="@{../static/css/index.css}">
+  <link rel="stylesheet" th:href="@{/css/index.css}">
 </head>
 
 <body>
   <!-- Header -->
   <header class="header">
     <div class="logo">
-      <img src="../static/img/logo-dark.png" alt="Logo Hotel da Maria">
+      <img th:src="@{/img/logo-dark.png}" alt="Logo Hotel da Maria">
       <h1>Hotel da Maria</h1>
     </div>
   </header>
@@ -23,38 +23,12 @@
     <div class="carousel">
       <button class="prev">&#10094;</button>
       <div class="carousel-track">
-        <a class="card-button" href="perfil-pet.html">
-          <div class="card"><img src="../static/img/joca.png" alt="">
-            <p>Joca | 13 anos</p>
+        <a th:href="@{/perfil-pet/{id}(id=${pet.id})}" style="text-decoration: none; color: inherit;" th:each="pet : ${pets}">
+          <div class="card">
+            <img th:src="${pet.fotoUrl}" th:alt="${'Foto de ' + pet.nome}">
+            <p th:text="${pet.nome} + ' | ' + ${pet.idade} + ' anos'"></p>
           </div>
         </a>
-        <div class="card"><img src="../static/img/bisteca.png" alt="">
-          <p>Bisteca | 10 anos</p>
-        </div>
-        <div class="card"><img src="../static/img/tobias.png" alt="">
-          <p>Tobias | 11 anos</p>
-        </div>
-        <div class="card"><img src="../static/img/rosinha.png" alt="">
-          <p>Rosinha | 15 anos</p>
-        </div>
-        <div class="card"><img src="../static/img/elvis.png" alt="">
-          <p>Elvis | 12 anos</p>
-        </div>
-        <div class="card"><img src="../static/img/joca.png" alt="">
-          <p>Joca | 13 anos</p>
-        </div>
-        <div class="card"><img src="../static/img/bisteca.png" alt="">
-          <p>Bisteca | 10 anos</p>
-        </div>
-        <div class="card"><img src="../static/img/tobias.png" alt="">
-          <p>Tobias | 11 anos</p>
-        </div>
-        <div class="card"><img src="../static/img/rosinha.png" alt="">
-          <p>Rosinha | 15 anos</p>
-        </div>
-        <div class="card"><img src="../static/img/elvis.png" alt="">
-          <p>Elvis | 12 anos</p>
-        </div>
       </div>
       <button class="next">&#10095;</button>
     </div>
@@ -66,37 +40,37 @@
     <div class="carousel">
       <button class="prev">&#10094;</button>
       <div class="carousel-track">
-        <div class="card"><img src="../static/img/alfie.png" alt="">
+        <div class="card"><img th:src="@{/img/alfie.png}" alt="">
           <p>Alfie | 3 anos</p>
         </div>
-        <div class="card"><img src="../static/img/dalila.png" alt="">
+        <div class="card"><img th:src="@{/img/dalila.png}" alt="">
           <p>Dalila | 9 anos</p>
         </div>
-        <div class="card"><img src="../static/img/raul.png" alt="">
+        <div class="card"><img th:src="@{/img/raul.png}" alt="">
           <p>Raul | 5 anos</p>
         </div>
-        <div class="card"><img src="../static/img/gamora.png" alt="">
+        <div class="card"><img th:src="@{/img/gamora.png}" alt="">
           <p>Gamora | 2 anos</p>
         </div>
-        <div class="card"><img src="../static/img/sushi.png" alt="">
+        <div class="card"><img th:src="@{/img/sushi.png}" alt="">
           <p>Sushi | 2 anos</p>
         </div>
-        <div class="card"><img src="../static/img/alfie.png" alt="">
+        <div class="card"><img th:src="@{/img/alfie.png}" alt="">
           <p>Alfie | 3 anos</p>
         </div>
-        <div class="card"><img src="../static/img/alfie.png" alt="">
+        <div class="card"><img th:src="@{/img/alfie.png}" alt="">
           <p>Alfie | 3 anos</p>
         </div>
-        <div class="card"><img src="../static/img/dalila.png" alt="">
+        <div class="card"><img th:src="@{/img/dalila.png}" alt="">
           <p>Dalila | 9 anos</p>
         </div>
-        <div class="card"><img src="../static/img/raul.png" alt="">
+        <div class="card"><img th:src="@{/img/raul.png}" alt="">
           <p>Raul | 5 anos</p>
         </div>
-        <div class="card"><img src="../static/img/gamora.png" alt="">
+        <div class="card"><img th:src="@{/img/gamora.png}" alt="">
           <p>Gamora | 2 anos</p>
         </div>
-        <div class="card"><img src="../static/img/sushi.png" alt="">
+        <div class="card"><img th:src="@{/img/sushi.png}" alt="">
           <p>Sushi | 2 anos</p>
         </div>
       </div>
@@ -108,87 +82,32 @@
   <section class="section light">
     <h2>Hóspedes mais animados</h2>
     <div class="grid">
-      <div class="card adopt">
-        <img src="../static/img/chaveco.png" alt="">
-        <p>Chaveco | 2 anos | SRD</p>
-        <button>adotar</button>
-      </div>
-      <div class="card adopt">
-        <img src="../static/img/khloe.png" alt="">
-        <p>Khloe | 3 anos | SRD</p>
-        <button>adotar</button>
-      </div>
-      <div class="card adopt">
-        <img src="../static/img/fiapo.png" alt="">
-        <p>Fiapo | 5 anos | SRD</p>
-        <button>adotar</button>
-      </div>
-      <div class="card adopt">
-        <img src="../static/img/madona.png" alt="">
-        <p>Madonna | 1 ano | SRD</p>
-        <button>adotar</button>
-      </div>
-      <div class="card adopt">
-        <img src="../static/img/chaveco.png" alt="">
-        <p>Chaveco | 2 anos | SRD</p>
-        <button>adotar</button>
-      </div>
-      <div class="card adopt">
-        <img src="../static/img/khloe.png" alt="">
-        <p>Khloe | 3 anos | SRD</p>
-        <button>adotar</button>
-      </div>
-    </div>
-    <div class="grid">
-      <div class="card adopt">
-        <img src="../static/img/chaveco.png" alt="">
-        <p>Chaveco | 2 anos | SRD</p>
-        <button>adotar</button>
-      </div>
-      <div class="card adopt">
-        <img src="../static/img/khloe.png" alt="">
-        <p>Khloe | 3 anos | SRD</p>
-        <button>adotar</button>
-      </div>
-      <div class="card adopt">
-        <img src="../static/img/fiapo.png" alt="">
-        <p>Fiapo | 5 anos | SRD</p>
-        <button>adotar</button>
-      </div>
-      <div class="card adopt">
-        <img src="../static/img/madona.png" alt="">
-        <p>Madonna | 1 ano | SRD</p>
-        <button>adotar</button>
-      </div>
-      <div class="card adopt">
-        <img src="../static/img/chaveco.png" alt="">
-        <p>Chaveco | 2 anos | SRD</p>
-        <button>adotar</button>
-      </div>
-      <div class="card adopt">
-        <img src="../static/img/khloe.png" alt="">
-        <p>Khloe | 3 anos | SRD</p>
-        <button>adotar</button>
-      </div>
+      <a th:href="@{/perfil-pet/{id}(id=${pet.id})}" style="text-decoration: none; color: inherit;" th:each="pet : ${disponiveis}">
+        <div class="card adopt">
+          <img th:src="${pet.fotoUrl}" th:alt="${'Foto de ' + pet.nome}">
+          <p th:text="${pet.nome} + ' | ' + ${pet.idade} + ' anos | ' + ${pet.raca}"></p>
+          <button onclick="return false;">adotar</button>
+        </div>
+      </a>
     </div>
   </section>
 
   <footer class="footer">
-    <a href="../usuario/index.html">
-      <img src="../static/img/home-dark.png" alt="Início">
+    <a th:href="@{/home}">
+      <img th:src="@{/img/home-dark.png}" alt="Início">
     </a>
-    <a href="doar.html">
-      <img src="../static/img/doar.png" alt="Doações">
+    <a th:href="@{/doar}">
+      <img th:src="@{/img/doar.png}" alt="Doações">
     </a>
-    <a href="sobre.html">
-      <img src="../static/img/sobre-nos.png" alt="Hóspedes">
+    <a th:href="@{/sobre}">
+      <img th:src="@{/img/sobre-nos.png}" alt="Hóspedes">
     </a>
-    <a href="perfil.html">
-      <img src="../static/img/perfil.png" alt="Perfil">
+    <a th:href="@{/perfil}">
+      <img th:src="@{/img/perfil.png}" alt="Perfil">
     </a>
   </footer>
 
-  <script src="../../static/js/script.js"></script>
+  <script th:src="@{/js/script.js}"></script>
 </body>
 
 </html>

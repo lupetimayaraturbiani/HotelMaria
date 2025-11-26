@@ -1,9 +1,3 @@
-// Simulação de "usuários cadastrados" (poderia vir de um backend ou localStorage)
-const usuarios = [
-    { email: "mayara@gmail.com", senha: "123456" },
-    { email: "adm@gmail.com", senha: "adm123"}
-];
-
 // Pega o formulário
 const form = document.getElementById("loginForm");
 
@@ -13,21 +7,32 @@ form.addEventListener("submit", function (event) {
     const email = document.getElementById("email").value;
     const senha = document.getElementById("senha").value;
 
-    // Verifica se existe o usuário
-    const usuarioValido = usuarios.find(
-        user => user.email === email && user.senha === senha
-    );
+    // Cria FormData para enviar via POST
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("senha", senha);
 
-    
-
-    if (usuarioValido) {
-        alert("Login realizado com sucesso!");
-        // redireciona para a tela principal
-        window.location.href = "../../templates/usuario/index.html";
-        if (email == "adm@gmail.com" && senha == "adm123") {
-            window.location.href = "../../templates/indexAdm.html";
+    // Envia requisição POST para o backend com Factory Method
+    fetch("/login", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.sucesso) {
+            // Login bem-sucedido - redireciona para a página específica do tipo de usuário
+            console.log("Tipo de usuário:", data.tipoUsuario);
+            console.log("Página principal:", data.paginaPrincipal);
+            
+            // Redireciona para a página correta baseado no tipo de usuário
+            window.location.href = data.paginaPrincipal;
+        } else {
+            // Login falhou - exibe mensagem de erro
+            alert(data.mensagem || "E-mail ou senha incorretos!");
         }
-    } else {
-        alert("E-mail ou senha incorretos!");
-    }
+    })
+    .catch(error => {
+        console.error("Erro na requisição:", error);
+        alert("Erro ao tentar fazer login. Tente novamente.");
+    });
 });

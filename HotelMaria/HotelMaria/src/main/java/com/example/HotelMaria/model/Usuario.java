@@ -21,6 +21,9 @@ public class Usuario {
     private String telefone;
     private String endereco;
     private String senha;
+    
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
+    private boolean isAdmin = false;
 
     public Long getId() {
         return id;
@@ -68,5 +71,13 @@ public class Usuario {
 
     public void setSenha(String senhaHash) {
         this.senha = senhaHash;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }
