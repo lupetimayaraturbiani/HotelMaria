@@ -31,7 +31,7 @@
         <button type="submit" class="btn-primary">Acessar conta</button>
 
         <p class="signup-text">Ainda não possui uma conta?</p>
-        <button type="button" onclick="window.location.href='cadastro.html'" class="btn-secondary">Fazer cadastro</button>
+        <button type="button" class="btn-secondary" th:onclick="|window.location='@{/cadastro}'|">Fazer cadastro</button>
       </form>
     </div>
   </main>

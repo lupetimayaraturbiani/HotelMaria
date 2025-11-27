@@ -4,15 +4,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.example.HotelMaria.repository.AdocaoRepository;
+import com.example.HotelMaria.repository.UsuarioRepository;
 import com.example.HotelMaria.service.PetService;
 
 @Controller
 public class HomeController {
 
     private final PetService petService;
+    private final UsuarioRepository usuarioRepo;
+    private final AdocaoRepository adocaoRepo;
 
-    public HomeController(PetService petService) {
+    public HomeController(PetService petService, UsuarioRepository usuarioRepo, AdocaoRepository adocaoRepo) {
         this.petService = petService;
+        this.usuarioRepo = usuarioRepo;
+        this.adocaoRepo = adocaoRepo;
     }
 
 
@@ -43,7 +49,7 @@ public class HomeController {
     public String perfil() {
         return "perfil";
     }
-
+    
     @GetMapping("/pagamento")
     public String pagamento() {
         return "pagamento";
@@ -73,13 +79,15 @@ public class HomeController {
         return "cadastro-pets";
     }
 
-    @GetMapping("/gereciar-adocao")
-    public String gereciarAdocao() {
-        return "gereciar-adocao";
+    @GetMapping("/gerenciar-adocao")
+    public String gereciarAdocao(Model model) {
+        model.addAttribute("adocoes", adocaoRepo.findAll());
+        return "gerenciar-adocao";
     }
 
     @GetMapping("/gerenciar-tutores")
-    public String gerenciarTutores() {
+    public String gerenciarTutores(Model model) {
+        model.addAttribute("tutores", usuarioRepo.findByIsAdminFalse());
         return "gerenciar-tutores";
     }
 

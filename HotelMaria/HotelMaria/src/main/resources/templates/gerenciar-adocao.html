@@ -11,7 +11,7 @@
 <body>
     <header class="header">
         <div class="header-content">
-            <a href="indexAdm.html" class="back">←</a>
+            <a th:href="@{/index-adm}" class="back">←</a>
             <h1>Gerenciar Adoções</h1>
         </div>
     </header>
@@ -23,64 +23,48 @@
         </div>
 
         <section class="solicitacoes">
-            <!-- Card de adoção -->
-            <div class="card">
-                <img src="../static/img/chaveco.png" alt="Chaveco" class="pet-foto">
-                <div class="info">
-                    <h2>Chaveco</h2>
-                    <p>Adotante: Ana</p>
-                    <p>Etapa: Aprovação</p>
-                    <a href="#" class="detalhes">Ver detalhes</a>
-                </div>
-                <div class="acoes">
-                    <button class="reprovar">❌</button>
-                    <button class="aprovar">✅</button>
-                </div>
+            <div th:if="${adocoes == null or #lists.isEmpty(adocoes)}">
+                <p>Nenhuma solicitação de adoção encontrada.</p>
             </div>
 
-            <div class="card">
-                <img src="../static/img/chaveco.png" alt="Chaveco" class="pet-foto">
+            <div th:each="adocao : ${adocoes}" class="card">
+                <img th:src="${adocao.pet.fotoUrl}" th:alt="${'Foto de ' + adocao.pet.nome}" class="pet-foto">
                 <div class="info">
-                    <h2>Chaveco</h2>
-                    <p>Adotante: Ana</p>
-                    <p>Etapa: Aprovação</p>
-                    <a href="#" class="detalhes">Ver detalhes</a>
+                    <h2 th:text="${adocao.pet.nome}">Pet</h2>
+                    <p><strong>Adotante:</strong> <span th:text="${adocao.usuario != null ? adocao.usuario.nome : '—'}">Nome</span></p>
+                    <p><strong>Data:</strong> <span th:text="${#temporals.format(adocao.dataSolicitacao, 'dd/MM/yyyy HH:mm')}">data</span></p>
+                    <p><strong>Status:</strong> <span th:text="${adocao.status}">PENDENTE</span></p>
+                    <a th:href="@{/perfil-pet/{id}(id=${adocao.pet.id})}" class="detalhes">Ver perfil do pet</a>
                 </div>
                 <div class="acoes">
-                    <button class="reprovar">❌</button>
-                    <button class="aprovar">✅</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="../static/img/chaveco.png" alt="Chaveco" class="pet-foto">
-                <div class="info">
-                    <h2>Chaveco</h2>
-                    <p>Adotante: Ana</p>
-                    <p>Etapa: Aprovação</p>
-                    <a href="#" class="detalhes">Ver detalhes</a>
-                </div>
-                <div class="acoes">
-                    <button class="reprovar">❌</button>
-                    <button class="aprovar">✅</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="../static/img/chaveco.png" alt="Chaveco" class="pet-foto">
-                <div class="info">
-                    <h2>Chaveco</h2>
-                    <p>Adotante: Ana</p>
-                    <p>Etapa: Aprovação</p>
-                    <a href="#" class="detalhes">Ver detalhes</a>
-                </div>
-                <div class="acoes">
-                    <button class="reprovar">❌</button>
-                    <button class="aprovar">✅</button>
+                    <button th:attr="data-id=${adocao.id}" class="reprovar" onclick="atualizarStatus(this, 'RECUSADA')">❌</button>
+                    <button th:attr="data-id=${adocao.id}" class="aprovar" onclick="atualizarStatus(this, 'APROVADA')">✅</button>
                 </div>
             </div>
 
         </section>
+
+        <script>
+            async function atualizarStatus(btn, novoStatus) {
+                const id = btn.getAttribute('data-id');
+                try {
+                    const res = await fetch('/api/adocoes/' + id + '/status', {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ status: novoStatus })
+                    });
+                    if (res.ok) {
+                        // recarrega a página para atualizar lista
+                        window.location.reload();
+                    } else {
+                        const txt = await res.text();
+                        alert('Erro: ' + txt);
+                    }
+                } catch (e) {
+                    alert('Erro na requisição: ' + e.message);
+                }
+            }
+        </script>
     </main>
 </body>
 

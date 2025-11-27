@@ -23,10 +23,10 @@
       </div>
 
       <div class="perfil-opcoes">
-        <button onclick="window.location.href = 'gerenciar-adocao.html'">Gerenciar adoções</button>
-        <button onclick="window.location.href = 'gerenciar-tutores.html'"  >Gerenciar tutores</button>
+        <button th:onclick="|window.location='@{/gerenciar-adocao}'|">Gerenciar adoções</button>
+        <button th:onclick="|window.location='@{/gerenciar-tutores}'|"  >Gerenciar tutores</button>
         <button>Gerenciar doações</button>
-        <button onclick="window.location.href = 'cadastro-pets.html'" >Cadastrar hóspede</button>
+        <button th:onclick="|window.location='@{/cadastro-pets}'|" >Cadastrar hóspede</button>
       </div>
 
       <div class="acoes">

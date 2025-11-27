@@ -5,11 +5,6 @@ import com.example.HotelMaria.model.UsuarioAbstrato;
 import com.example.HotelMaria.model.UsuarioAdmin;
 import com.example.HotelMaria.model.UsuarioNormal;
 
-/**
- * Classe que implementa o padrão Factory Method
- * Responsável por criar instâncias de diferentes tipos de usuários
- * baseado no tipo de usuário (Admin ou Normal)
- */
 public class UsuarioFactory {
 
     /**

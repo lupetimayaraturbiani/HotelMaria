@@ -81,7 +81,7 @@
   <!-- Hóspedes mais animados -->
   <section class="section light">
     <h2>Hóspedes mais animados</h2>
-    <div class="grid">
+      <div class="grid">
       <a th:href="@{/perfil-pet/{id}(id=${pet.id})}" style="text-decoration: none; color: inherit;" th:each="pet : ${disponiveis}">
         <div class="card adopt">
           <img th:src="${pet.fotoUrl}" th:alt="${'Foto de ' + pet.nome}">
